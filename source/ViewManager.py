@@ -16,8 +16,8 @@ import flet as ft
 import threading
 import time
 
-import ENV_LIST as ENV
-from BackEnd import BackEnd as BE
+from source import ENV_LIST as ENV
+from source.BackEnd import BackEnd as BE
 
 
 class ViewManager():

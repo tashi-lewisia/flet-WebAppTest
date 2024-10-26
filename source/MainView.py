@@ -1,5 +1,5 @@
 import flet as ft
-from ViewManager import ViewManager as VM
+from source.ViewManager import ViewManager as VM
 
 ######## 全てのビューを統括するクラス ########
 class MainView(ft.Stack):

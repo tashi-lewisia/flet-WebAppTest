@@ -1,6 +1,6 @@
 import flet as ft
-import ENV_LIST as ENV
-from MainView import MainView
+from source import ENV_LIST as ENV
+from source.MainView import MainView
 
 
 class MainApp():
