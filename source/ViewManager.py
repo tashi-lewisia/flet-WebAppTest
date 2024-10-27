@@ -36,19 +36,19 @@ class ViewManager():
     ################################################################################
     #                                  メソッド
     ################################################################################
-    # # ビューを定期的に更新する
-    # @classmethod
-    # def ViewUpdate(cls):
-    #     while cls.runningViewUpdate:
-    #         #各データをviewに渡す 
-    #         #!(BEで勝手にデータが変更される全てのrefに対して行う)
-    #         #!要素が多い場合は、ちゃんとobseverなどの手法を取り入れた方が良さそう
-    #         cls.UpdateRef(cls.refText, "value", BE.count)
+    # ビューを定期的に更新する
+    @classmethod
+    def ViewUpdate(cls):
+        while cls.runningViewUpdate:
+            #各データをviewに渡す 
+            #!(BEで勝手にデータが変更される全てのrefに対して行う)
+            #!要素が多い場合は、ちゃんとobseverなどの手法を取り入れた方が良さそう
+            cls.UpdateRef(cls.refText, "value", BE.count)
 
 
-    #         # リフレッシュレートの時間だけ待つ
-    #         time.sleep(ENV.REFRESH_RATE)
-    #     pass
+            # リフレッシュレートの時間だけ待つ
+            time.sleep(ENV.REFRESH_RATE)
+        pass
 
 
 
@@ -57,7 +57,7 @@ class ViewManager():
     def StartViewUpdate(cls):
         #新しいスレッドで描画を開始する
         cls.runningViewUpdate = True
-        # threading.Thread(target=cls.ViewUpdate, daemon=True).start()
+        threading.Thread(target=cls.ViewUpdate, daemon=True).start()
         pass
 
 
@@ -82,5 +82,5 @@ class ViewManager():
     @classmethod
     def ButtonClick(cls,e):
         BE.IncrementCount()
-        cls.refText.current.value = BE.count
-        cls.refText.current.update()
+        # cls.refText.current.value = BE.count
+        # cls.refText.current.update()
