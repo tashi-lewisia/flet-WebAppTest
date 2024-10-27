@@ -13,9 +13,7 @@
 #   import
 ###
 import flet as ft
-import threading
 import asyncio
-import time
 
 from source import ENV_LIST as ENV
 from source.BackEnd import BackEnd as BE
@@ -48,24 +46,21 @@ class ViewManager():
 
 
             # リフレッシュレートの時間だけ待つ
-            #time.sleep(ENV.REFRESH_RATE)
             await asyncio.sleep(ENV.REFRESH_RATE)
         pass
 
 
 
-    #ビデオキャプチャを開始する
+    #ビューの更新を開始する
     @classmethod
     def StartViewUpdate(cls):
         #新しいスレッドで描画を開始する
         cls.runningViewUpdate = True
-        #threading.Thread(target=cls.ViewUpdate, daemon=True).start()
-
         cls.refMainView.current.page.run_task(cls.ViewUpdate)
         pass
 
 
-    #ビデオキャプチャを終了する
+    #ビューの更新を終了する
     @classmethod
     def StopViewUpdate(cls):
         cls.runningViewUpdate = False
@@ -86,5 +81,3 @@ class ViewManager():
     @classmethod
     def ButtonClick(cls,e):
         BE.IncrementCount()
-        # cls.refText.current.value = BE.count
-        # cls.refText.current.update()

@@ -15,7 +15,6 @@ class MainApp():
         page.theme_mode = "dark"
 
         page.title = ENV.APP_NAME
-        #page.window.always_on_top = ENV.WINDOW_ALWAYS_ON_TOP
         page.spacing = 0
         page.padding = 0
         page.horizontal_alignment = ft.CrossAxisAlignment.CENTER

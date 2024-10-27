@@ -26,8 +26,13 @@ class MainView(ft.Stack):
                                 "OK",
                                 ref = VM.refText,
                                 ),
+                            ft.Container(
+                                bgcolor=ft.colors.AMBER,
+                                expand=True,
+                            ),
                         ],
                         alignment=ft.MainAxisAlignment.CENTER,
+                        horizontal_alignment = ft.CrossAxisAlignment.CENTER,
                         expand=True,
                     )
                 ]
@@ -40,7 +45,6 @@ class MainView(ft.Stack):
     ################################################################################
     # ページへ追加時に呼ばれる関数
     def did_mount(self):
-        #カメラ映像のキャプチャを実行
         VM.StartViewUpdate()
         return super().did_mount()
 
