@@ -15,16 +15,16 @@ class MainApp():
         page.theme_mode = "dark"
 
         page.title = ENV.APP_NAME
-        page.window.always_on_top = ENV.WINDOW_ALWAYS_ON_TOP
+        #page.window.always_on_top = ENV.WINDOW_ALWAYS_ON_TOP
         page.spacing = 0
         page.padding = 0
         page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-        page.window.resizable = True
-        page.window.maximized = False
-        page.window.full_screen = False
+        # page.window.resizable = True
+        # page.window.maximized = False
+        # page.window.full_screen = False
 
-        page.window.width = ENV.DEFAULT_PAGE_WIDTH
-        page.window.height = ENV.DEFAULT_PAGE_HEIGHT
+        # page.window.width = ENV.DEFAULT_PAGE_WIDTH
+        # page.window.height = ENV.DEFAULT_PAGE_HEIGHT
 
         #コントロールの追加
         page.add(MainView())
