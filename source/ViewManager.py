@@ -14,6 +14,7 @@
 ###
 import flet as ft
 import threading
+import asyncio
 import time
 
 from source import ENV_LIST as ENV
@@ -38,7 +39,7 @@ class ViewManager():
     ################################################################################
     # ビューを定期的に更新する
     @classmethod
-    def ViewUpdate(cls):
+    async def ViewUpdate(cls):
         while cls.runningViewUpdate:
             #各データをviewに渡す 
             #!(BEで勝手にデータが変更される全てのrefに対して行う)
@@ -47,7 +48,8 @@ class ViewManager():
 
 
             # リフレッシュレートの時間だけ待つ
-            time.sleep(ENV.REFRESH_RATE)
+            #time.sleep(ENV.REFRESH_RATE)
+            await asyncio.sleep(ENV.REFRESH_RATE)
         pass
 
 
@@ -57,7 +59,9 @@ class ViewManager():
     def StartViewUpdate(cls):
         #新しいスレッドで描画を開始する
         cls.runningViewUpdate = True
-        threading.Thread(target=cls.ViewUpdate, daemon=True).start()
+        #threading.Thread(target=cls.ViewUpdate, daemon=True).start()
+
+        cls.refMainView.current.page.run_task(cls.ViewUpdate)
         pass
 
 
