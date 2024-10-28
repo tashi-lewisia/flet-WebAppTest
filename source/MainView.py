@@ -30,6 +30,10 @@ class MainView(ft.Stack):
                                 bgcolor=ft.colors.AMBER,
                                 expand=True,
                             ),
+                            ft.Text(
+                                "width",
+                                ref = VM.refWidthText,
+                                ),
                         ],
                         alignment=ft.MainAxisAlignment.CENTER,
                         horizontal_alignment = ft.CrossAxisAlignment.CENTER,

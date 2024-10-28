@@ -29,6 +29,8 @@ class ViewManager():
     refMainView = ft.Ref[ft.Stack]()
     refText = ft.Ref[ft.Text]()
 
+    refWidthText = ft.Ref[ft.Text]()
+
     # viewのupdateを行うかどうか
     runningViewUpdate = False
 
@@ -43,6 +45,8 @@ class ViewManager():
             #!(BEで勝手にデータが変更される全てのrefに対して行う)
             #!要素が多い場合は、ちゃんとobseverなどの手法を取り入れた方が良さそう
             cls.UpdateRef(cls.refText, "value", BE.count)
+            cls.UpdateRef(cls.refWidthText, "value", cls.refMainView.current.page.width)
+
 
 
             # リフレッシュレートの時間だけ待つ
